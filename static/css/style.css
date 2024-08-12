@@ -1,0 +1,9 @@
+/*about page*/
+.col-md-5 img {
+    width: 100%
+}
+
+#about_background {
+    width: 100%;
+    background-image: url(static/assets/img/spacevoid.avif);
+}
