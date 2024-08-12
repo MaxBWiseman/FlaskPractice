@@ -13,7 +13,8 @@
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
         </ul>
     </nav>
-    {% block content %}
+    {% block content %} <!--All content above this block is copied for the other pages to use-->
+    <!--Content that you wish to remain on the page will be placed inbetween here-->
     {% endblock %}
 </body>
 </html>
