@@ -30,6 +30,8 @@ def contact():
 @app.route('/careers')
 def careers():
     return render_template('careers.html')
+#Having a template makes it easier to change things that would require a change to every page
+#as you would only need to change the template and it would change on every page. Copying the template
 
 
 if __name__ == '__main__':

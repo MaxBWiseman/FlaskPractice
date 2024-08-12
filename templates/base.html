@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Hello Flask</title>
 </head>
 <body>
@@ -16,6 +17,6 @@
     </nav>
     {% block content %} <!--All content above this block is copied for the other pages to use-->
     <!--Content that you wish to remain on the page will be placed inbetween here-->
-    {% endblock %}
+    {% endblock %}<!--All content below this block is copied for the other pages to use-->
 </body>
 </html>
