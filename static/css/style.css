@@ -7,3 +7,44 @@
     width: 100%;
     background-image: url(static/assets/img/spacevoid.avif);
 }
+
+/* Featurette Image */
+.featurette-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  /* Featurette Container */
+.featurette {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 0;
+  }
+  
+  /* Featurette Text */
+.featurette-text {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .featurette {
+      flex-direction: column;
+    }
+    .featurette-image {
+      margin-bottom: 20px;
+    }
+  }
+  
+/* Featurette Divider */
+.featurette-divider {
+    margin: 5rem 0; /* Adjusts the spacing around the divider */
+    border: 0; /* Removes any default border */
+    border-top: 5px solid #e5e5e5; /* Adds a thin, solid top border */
+    width: 100%; /* Ensures the divider spans the full width */
+  }

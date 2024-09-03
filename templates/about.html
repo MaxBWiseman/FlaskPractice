@@ -5,9 +5,9 @@
 <!-- gets data from data/mock_data.json, displays the 2nd name stored
   (techniqually 1st as zero is counted) json is loaded through run.py/about-->
 
-
+<br>
 <h2>{{ page_title }}</h2>
-<p>
+<p class="featurette-text">
     The formation of the group grew out of a meeting Gandalf had with Thorin in Bree which kindled Thorin's interest in
     recapturing his long lost family inheritance. (Thorin's grandfather had been the king of the Lonely Mountain when
     Smaug came and took it.) Remembering that he had once known an adventurous Hobbit on his travels in the Shire,
@@ -25,19 +25,19 @@
         <h3>{{ member.name }}</h3>
 <!-- The iterator above will use this code to fill this <h3> with key pairs with the label "name",
  this is usefull as we dont have to manually type out every name is the json file database-->
-        <p>
+        <p class="featurette-text">
             {{ member.description}}
 <!-- the same goes here, the iterator above will go through the json file and place every label with
  "description" in this <p> element-->
         </p>
     </div>
     <div class="col-md-5">
-        <img src="{{ member.image_source}}" alt="" class="featurette-image image-responsive">
+        <img src="{{ member.image_source}}" alt="" class="featurette-image">
     </div>
 </div>
 
 <!--All this is very usefull as we dont have to repeat ourselves and make individual <div> elements
- to display each json data entry, this is done automatically with the {%%} and {{}} variables -->
+ to display each json data entry, this is done automatically with the jinja2 variables -->
 
 <hr class="featurette-divider">
 
