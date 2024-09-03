@@ -21,7 +21,9 @@
 <!--Iterates through the mock_data.json file-->
 
 <div class="row featurette">
-    {% if loop.index is divisibleby(2) %}
+    {% if loop.index % 2 != 0 %}
+<!--This is a jinja2 conditional statement, it will check if the index of the loop is even and display
+only the data that is an even number in the json data list-->
     <div class="col-md-7">
         <h3>{{loop.index}}. {{ member.name }}</h3>
 <!-- The iterator above will use this code to fill this <h3> with key pairs with the label "name",
@@ -35,13 +37,29 @@
     <div class="col-md-5">
         <img src="{{ member.image_source}}" alt="" class="featurette-image">
     </div>
-    {% endif %}
-</div>
+    {% else %}
+<!--This else statement handles everything ELSE the main IF statement doesnt, in this case
+it will check if the index of the loop is only odd and display-->
+    <div class="col-md-5">
+        <img src="{{ member.image_source}}" alt="" class="featurette-image">
+    </div>
+<!-- because we put the image before the content unlike above, we get a "left to right" image affect-->
+    <div class="col-md-7">
+        <h3>{{loop.index}}. {{ member.name }}</h3>
+        <p class="featurette-text">
+            {{ member.description}}
+        </p>
+        {% endif %}
+    </div>
 
 <!--All this is very usefull as we dont have to repeat ourselves and make individual <div> elements
  to display each json data entry, this is done automatically with the jinja2 variables -->
+    {% if loop.index != loop.length %}
+        <hr class="featurette-divider">
+<!--This makes sure we dont get a divider on the last item in the iteration-->
+    </div>
+    {% endif %}
 
-<hr class="featurette-divider">
+    {% endfor %}
 
-{% endfor %}
-{% endblock %}
+    {% endblock %}
