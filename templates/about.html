@@ -21,8 +21,9 @@
 <!--Iterates through the mock_data.json file-->
 
 <div class="row featurette">
+    {% if loop.index is divisibleby(2) %}
     <div class="col-md-7">
-        <h3>{{ member.name }}</h3>
+        <h3>{{loop.index}}. {{ member.name }}</h3>
 <!-- The iterator above will use this code to fill this <h3> with key pairs with the label "name",
  this is usefull as we dont have to manually type out every name is the json file database-->
         <p class="featurette-text">
@@ -34,6 +35,7 @@
     <div class="col-md-5">
         <img src="{{ member.image_source}}" alt="" class="featurette-image">
     </div>
+    {% endif %}
 </div>
 
 <!--All this is very usefull as we dont have to repeat ourselves and make individual <div> elements
