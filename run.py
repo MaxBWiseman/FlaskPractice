@@ -30,6 +30,26 @@ def about():
 # You would then repeat this for every page you wish to create.
 # This is the basic structure of a flask app.
 
+@app.route('/about/<member_name>')
+def about_member(member_name):
+# This is how you would create a route for a specific member.
+    member = {}
+# member is an empty dictionary.
+    with open('data/mock_data.json', 'r') as json_data:
+# This is how you would open a json file in python. r is for read.
+        data = json.load(json_data)
+# This is how you would load the data from the json file as a list of dictionaries.
+        for obj in data:
+# This is how you would loop through the list of dictionaries.
+            if obj['url'] == member_name:
+# This is how you would check if the url key pair in the json file is the same as the member_name.
+                member = obj
+# member is now the dictionary that has the same url key pair as the member_name.
+    return render_template('member.html', member=member)
+# This is how you would pass the member dictionary to the html file.
+# This first 'member' is the variable name being passed through into our html file.
+# The second 'member' is the member object we created above on line 24.
+
 
 @app.route('/contact')
 def contact():

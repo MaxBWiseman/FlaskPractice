@@ -25,12 +25,12 @@
 <!--This is a jinja2 conditional statement, it will check if the index of the loop is even and display
 only the data that is an even number in the json data list-->
     <div class="col-md-7">
-        <h3>{{loop.index}}. {{ member.name }}</h3>
+        <h3><a href="/about/{{ member.url }}">{{loop.index}}. {{ member.name }}</a></h3>
 <!-- The iterator above will use this code to fill this <h3> with key pairs with the label "name",
  this is usefull as we dont have to manually type out every name is the json file database-->
         <p class="featurette-text">
             {{ member.description}}
-<!-- the same goes here, the iterator above will go through the json file and place every label with
+            <!-- the same goes here, the iterator above will go through the json file and place every label with
  "description" in this <p> element-->
         </p>
     </div>
@@ -43,9 +43,9 @@ it will check if the index of the loop is only odd and display-->
     <div class="col-md-5">
         <img src="{{ member.image_source}}" alt="" class="featurette-image">
     </div>
-<!-- because we put the image before the content unlike above, we get a "left to right" image affect-->
+    <!-- because we put the image before the content unlike above, we get a "left to right" image affect-->
     <div class="col-md-7">
-        <h3>{{loop.index}}. {{ member.name }}</h3>
+        <h3><a href="/about/{{ member.url }}">{{loop.index}}. {{ member.name }}</a></h3>
         <p class="featurette-text">
             {{ member.description}}
         </p>
@@ -55,11 +55,11 @@ it will check if the index of the loop is only odd and display-->
 <!--All this is very usefull as we dont have to repeat ourselves and make individual <div> elements
  to display each json data entry, this is done automatically with the jinja2 variables -->
     {% if loop.index != loop.length %}
-        <hr class="featurette-divider">
+    <hr class="featurette-divider">
 <!--This makes sure we dont get a divider on the last item in the iteration-->
-    </div>
-    {% endif %}
+</div>
+{% endif %}
 
-    {% endfor %}
+{% endfor %}
 
-    {% endblock %}
+{% endblock %}
