@@ -1,12 +1,19 @@
 import os
 import json
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash
 # This is how you would import the Flask class from the flask module.
-# Render_template is a function that allows you to render html files.
+# Render_template is a function that allows you to render html files, and pass data to them.
+# Request is a function that allows you to get data from the user.
+# Flash is a function that allows you to send messages to the user.
+if os.path.exists("env.py"):
+    import env
+
 
 
 app = Flask(__name__)
 # This is how you would create an instance of the Flask class.
+app.secret_key = os.environ.get('SECRET_KEY')
+# This is how you would set the secret key for the app thats inside env.py.
 
 
 @app.route('/')
@@ -51,8 +58,16 @@ def about_member(member_name):
 # The second 'member' is the member object we created above on line 24.
 
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
+# methods=['GET', 'POST'] is how you would allow the user to
+# send data to the server if you have something like a form on the page.
 def contact():
+    if request.method == 'POST':
+# This is how you would check if the user has sent data to the server.
+        flash('Thanks {}, we have received your message!'.format(
+            request.form['name']))
+# It takes the 'name' key from our form, then using the .format() method, it injects that
+# name into this particular flash message.
     return render_template('contact.html', page_title="Contact")
 # This is how you would create a route for the contact page.
 
